@@ -2,8 +2,8 @@ import { DELETE_LOAN, NEW_LOAN, UPDATE_LOAN } from "../actions/loans";
 
 
 const initialState = [
-    {id: 1, movieTitle: 'La guerra de las galaxias', rentedAt: new Date.now(), rentTime: 7, returned: false, userId: 2},
-    {id: 2, movieTitle: 'Hola que tal', rentedAt: new Date.now(), rentTime: 7, returned: false, userId: 4}
+    {id: 1, movieTitle: 'La guerra de las galaxias', rentedAt: 'new Date.now()', rentTime: 7, returned: false, userId: 2},
+    {id: 2, movieTitle: 'Hola que tal', rentedAt: 'new Date.now()', rentTime: 7, returned: false, userId: 4}
 ]
 
 const reducer = (state = initialState, action) => {
@@ -14,7 +14,7 @@ const reducer = (state = initialState, action) => {
                 {
                     id: action.payload.id,
                     movieTitle: action.payload.movieTitle,
-                    rentedAt: new Date.now(),
+                    rentedAt: 'new Date.now()',
                     rentTime: action.payload.rentTime,
                     userId: action.payload.userId
                 }
@@ -23,8 +23,8 @@ const reducer = (state = initialState, action) => {
         case UPDATE_LOAN:
             return state.map(loan => {
                 if(loan.id === action.payload.id){
-                    loan.movieTitle = action.payload.movieTitle,
-                    loan.rentTime = action.payload.rentTime
+                    loan.movieTitle = action.payload.movieTitle;
+                    loan.rentTime = action.payload.rentTime;
                 }
             })
 

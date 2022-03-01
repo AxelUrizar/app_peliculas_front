@@ -45,3 +45,7 @@
   .navBar-link:hover {
     color: rgb(168, 168, 168);
   }
+
+.netflix:hover{
+  color: white!important
+}

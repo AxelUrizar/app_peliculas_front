@@ -2,8 +2,8 @@ export const ADD_USER = 'ADD_USER'
 export const UPDATE_USER = 'UPDATE_USER'
 export const DELETE_USER = 'DELETE_USER'
 
-export const addUser = dispatch => (id, name, email, password) => {
-    return dispatch({
+export const addUser = (id, name, email, password) => {
+    return {
         type: ADD_USER,
         payload: {
             id: id,
@@ -11,23 +11,23 @@ export const addUser = dispatch => (id, name, email, password) => {
             email: email,
             password: password
         }
-    })
+    }
 }
 
-export const updateUser = dispatch => (name, email, password) => {
-    return dispatch({
+export const updateUser = (name, email, password) => {
+    return {
         type: UPDATE_USER,
         payload: {
             name: name,
             email: email,
             password: password
         }
-    })
+    }
 }
 
-export const deleteUser = dispatch => id => {
-    return dispatch({
+export const deleteUser = id => {
+    return {
         type: DELETE_USER,
         payload: id
-    })
+    }
 }
