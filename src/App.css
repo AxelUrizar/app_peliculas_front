@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.navBar-link{
+  color: white;
+  text-decoration: none;
+}
+
+  .navBar-link:hover {
+    color: rgb(168, 168, 168);
+  }
