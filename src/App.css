@@ -49,3 +49,26 @@
 .netflix:hover{
   color: white!important
 }
+
+body{
+  /* background-color: rgb(33, 36, 41)!important; */
+  background: linear-gradient(180deg, rgb(15, 15, 15) 0%, rgb(27, 27, 27) 100%);
+}
+
+ul{
+  list-style-type: none;
+}
+
+h2{
+  color: rgb(209, 66, 66)!important
+}
+
+p{
+  color: white!important;
+  margin: 0!important;
+}
+
+.outlet{
+  position: relative;
+  top: 25%;
+}

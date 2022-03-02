@@ -48,13 +48,13 @@ const SignUp = () => {
         console.log(cart.isLogged)
 
         dispatch(addUser(id, name, email, password))
-        dispatch(isLogged())
+        dispatch(isLogged(id))
 
         setSubmited(true)
     }
     
     return (
-        <div className="h-75 d-flex flex-column align-items-between justify-content-center">
+        <div className="d-flex flex-column align-items-between justify-content-center outletComponents">
             <div>
                 <h2 className="mb-5">Sign Up</h2>
                 <form onSubmit={handleSubmit}>
@@ -76,7 +76,7 @@ const SignUp = () => {
                             <input className="col-6" name="confirmPassword" type='password' required onChange={handleChangeConfirmPassword} />
                         </label>
                     </div>
-                    <button className="mt-5" type="submit">Acceder</button>
+                    <button className="btn btn-danger rounded-pill mt-5" type="submit"><p className="m-0 fw-bold">Acceder</p></button>
                 </form>
                 {!validatePasswords && <p className="mt-5">Las contraseñas no coinciden.</p>}
                 {submited && <Navigate to='/perfil'/>}

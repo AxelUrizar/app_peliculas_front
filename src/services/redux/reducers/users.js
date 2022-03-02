@@ -1,5 +1,4 @@
-import { useSelector } from "react-redux";
-import { ADD_USER, DELETE_USER, UPDATE_USER } from "../actions/users";
+import { ADD_USER, DELETE_USER, LOGIN_USER, UPDATE_USER } from "../actions/users";
 
 const initialState = [
     {id: 1, name: 'Axel U', email: 'demo@demo.com', password: '123456', role: 'admin'},
@@ -22,8 +21,12 @@ const reducer = (state = initialState, action) => {
                     password: action.payload.password,
                     role: 'user'
                 }
-            ]            
+            ]   
             
+        case LOGIN_USER:
+            localStorage.setItem('user', action.payload)
+            return [...state]
+
         case UPDATE_USER:
             return state.map(user => {
                 if (user.id === action.payload.id){
