@@ -25,7 +25,7 @@ export const updateLoan = (id, returnAt) => {
     }
 }
 
-export const loanReturn = (id) => {
+export const loanReturn = id => {
     return {
         type: LOAN_RETURN,
         payload: id

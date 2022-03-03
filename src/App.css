@@ -57,10 +57,10 @@
 
 body{
   /* Portátil */
-  background: linear-gradient(180deg, rgb(15, 15, 15) 0%, rgb(37, 37, 37) 100%);
+  /* background: linear-gradient(180deg, rgb(15, 15, 15) 0%, rgb(37, 37, 37) 100%); */
 
   /* Torre */
-  /* background: linear-gradient(180deg, rgb(15, 15, 15) 0%, rgb(27, 27, 27) 100%); */
+  background: linear-gradient(180deg, rgb(15, 15, 15) 0%, rgb(27, 27, 27) 100%);
 
   background-attachment: fixed;
   height: 100vh;

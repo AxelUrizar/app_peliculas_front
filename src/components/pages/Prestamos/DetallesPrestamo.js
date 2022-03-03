@@ -16,8 +16,8 @@ const DetallesPrestamo = () => {
     const [returned, setReturned] = useState(loan.returned)
 
     const loanReturnFunc = () => {
-        // console.log(id)
         dispatch(loanReturn(id))
+        setReturned(true)
     }
 
     return (
