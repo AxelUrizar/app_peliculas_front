@@ -7,6 +7,9 @@ import Home from './components/layouts/Home';
 import SignUp from './components/pages/session/SignUp';
 import LogIn from './components/pages/session/LogIn';
 import Perfil from './components/pages/usuarios/Perfil';
+import DetallesPrestamo from './components/pages/Prestamos/DetallesPrestamo';
+import ListadoPrestamos from './components/pages/Prestamos/ListadoPrestamos';
+import EditarPerfil from './components/pages/usuarios/EditarPerfil';
 
 
 function App() {
@@ -21,15 +24,14 @@ function App() {
           {/* <Route path='logout' element={<Logout />} /> */}
 
           {/* Paths Usuarios */}
-          <Route path='perfil' element={<Perfil />} />
-            {/* <Route path='/logout' element={<Logout />} /> */}
-            {/* <Route path='/logoutAll' element={<LogoutAll />} /> */}
+          <Route path='perfil/:id' element={<Perfil />} />
+            <Route path= 'perfil/:id/editarPerfil' element={<EditarPerfil />} />
             {/* <Route path='/eliminarCuenta' element={<EliminarCuenta />} /> */}
 
-          {/* Paths Mascotas */}
+          {/* Paths Prestamos */}
+          <Route path='prestamos' element={<ListadoPrestamos />}/>
+          <Route path='prestamo/:id' element={<DetallesPrestamo />} />
           {/* <Route path='perfil/nuevaMascota' element={<NuevaMascota />} /> */}
-          {/* <Route path='perfil/listadoMascotas' element={<ListadoMascotas />}/> */}
-          {/* <Route path='mascotas/:id' element={<Mascotas />} /> */}
 
           {/* Paths Citas */}
           {/* <Route path='mascotas/:id/nuevaCita' element={<NuevaCita />} /> */}

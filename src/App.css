@@ -46,21 +46,36 @@
     color: rgb(168, 168, 168);
   }
 
+.netflix{
+  color: rgb(197, 39, 39)!important;
+}
+
 .netflix:hover{
-  color: white!important
+  /* color: white!important; */
+  color: rgb(143, 29, 29)!important
 }
 
 body{
   /* background-color: rgb(33, 36, 41)!important; */
   background: linear-gradient(180deg, rgb(15, 15, 15) 0%, rgb(27, 27, 27) 100%);
+  background-attachment: fixed;
+  height: 100vh;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 ul{
   list-style-type: none;
+  width: 100%;
 }
 
 h2{
-  color: rgb(209, 66, 66)!important
+  color: rgb(197, 39, 39)!important
+}
+
+h4{
+  color: rgb(197, 39, 39)!important;
+  margin: 0!important;
 }
 
 p{
@@ -68,7 +83,46 @@ p{
   margin: 0!important;
 }
 
+button{
+  background-color: rgb(150, 37, 37)!important;
+  border-color: rgb(151, 32, 32)!important;
+}
+
+  button:hover{
+    background-color: rgb(128, 27, 27)!important;
+    color: rgb(184, 184, 184)!important;
+    border-color: rgb(128, 27, 27)!important;
+  }
+
+hr{
+  background-color:rgb(251, 0, 0)!important;
+  height: 4px!important
+}
+
 .outlet{
   position: relative;
-  top: 25%;
+  top: 8%;
+  /* margin-top: 10em; */
+}
+
+.linkLoginSignup:hover{
+  color: rgb(184, 184, 184)!important
+}
+
+.descripcionTitulo{
+  color: rgb(197, 39, 39)!important
+}
+
+.fotoPerfilNavBar{
+  height: 2.5em;
+}
+
+.barraNavegacion{
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.signup{
+  width: 30%!important;
 }

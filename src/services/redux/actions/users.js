@@ -1,6 +1,7 @@
 export const ADD_USER = 'ADD_USER'
 export const LOGIN_USER = 'LOGIN_USER'
-export const UPDATE_USER = 'UPDATE_USER'
+export const UPDATE_USER_NAME = 'UPDATE_USER_NAME'
+export const UPDATE_USER_EMAIL = 'UPDATE_USER_EMAIL'
 export const DELETE_USER = 'DELETE_USER'
 
 export const addUser = (id, name, email, password) => {
@@ -22,13 +23,22 @@ export const loginUser = (id) => {
     }
 }
 
-export const updateUser = (name, email, password) => {
+export const updateUserName = (id, name) => {
     return {
-        type: UPDATE_USER,
+        type: UPDATE_USER_NAME,
         payload: {
-            name: name,
-            email: email,
-            password: password
+            id: id,
+            name: name
+        }
+    }
+}
+
+export const updateUserEmail = (id, email) => {
+    return {
+        type: UPDATE_USER_EMAIL,
+        payload: {
+            id: id,
+            email: email
         }
     }
 }

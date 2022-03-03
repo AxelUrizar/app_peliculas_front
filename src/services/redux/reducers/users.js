@@ -1,10 +1,10 @@
-import { ADD_USER, DELETE_USER, LOGIN_USER, UPDATE_USER } from "../actions/users";
+import { ADD_USER, DELETE_USER, LOGIN_USER, UPDATE_USER_NAME, UPDATE_USER_EMAIL } from "../actions/users";
 
 const initialState = [
-    {id: 1, name: 'Axel U', email: 'demo@demo.com', password: '123456', role: 'admin'},
-    {id: 2, name: 'Rafa G', email: 'demo2@demo.com', password: '123456', role: 'user'},
-    {id: 3, name: 'Manel B', email: 'demo3@demo.com', password: '123456', role: 'user'},
-    {id: 4, name: 'Saya C', email: 'demo4@demo.com', password: '123456', role: 'user'}
+    {id: 1, name: 'Axel Urizar', email: 'demo@demo.com', password: '123456', role: 'admin'},
+    {id: 2, name: 'Rafa Garcia', email: 'demo2@demo.com', password: '123456', role: 'user'},
+    {id: 3, name: 'Manel Barreda', email: 'demo3@demo.com', password: '123456', role: 'user'},
+    {id: 4, name: 'Saya Casino', email: 'demo4@demo.com', password: '123456', role: 'user'}
 ]
 
 const reducer = (state = initialState, action) => {
@@ -27,12 +27,18 @@ const reducer = (state = initialState, action) => {
             localStorage.setItem('user', action.payload)
             return [...state]
 
-        case UPDATE_USER:
+        case UPDATE_USER_NAME:
             return state.map(user => {
-                if (user.id === action.payload.id){
+                if (user.id == action.payload.id){
                     user.name = action.payload.name
+                }
+                return user
+            })
+
+        case UPDATE_USER_EMAIL:
+            return state.map(user => {
+                if (user.id == action.payload.id){
                     user.email = action.payload.email
-                    user.password = action.payload.password
                 }
                 return user
             })

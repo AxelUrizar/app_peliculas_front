@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { Navigate } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
 import { isLogged } from "../../../services/redux/actions/isLogged"
 import { loginUser } from "../../../services/redux/actions/users"
 
@@ -11,8 +11,13 @@ const LogIn = () => {
     const [submited, setSubmited] = useState(false)
     const [validCredentials, setValidCredentials] = useState(true)
     
-    const cart = useSelector(state => state)
     const dispatch = useDispatch()
+
+    const storageId = localStorage.getItem('user')
+
+    const users = useSelector(state => state.users)
+    const userFiltered = users.filter(userFilter => userFilter.id == storageId)
+    const user = userFiltered[0]
 
     const handleChangeEmail = (e) => {
         setEmail(e.target.value)
@@ -25,11 +30,10 @@ const LogIn = () => {
 
         // console.log(cart.users)
 
-        const user = cart.users.filter(user => user.email === email && user.password === password)
+        const userValidated = users.filter(user => user.email === email && user.password === password)
 
-        if (user.length === 1) {
-            console.log(user[0].id)
-            dispatch(loginUser(user[0].id))
+        if (userValidated.length === 1) {
+            dispatch(loginUser(userValidated[0].id))
             dispatch(isLogged())
     
             setSubmited(true)
@@ -39,23 +43,26 @@ const LogIn = () => {
     }
     
     return (
-        <div className="outletComponents h-75 d-flex flex-column align-items-between justify-content-center">
+        <div className="outletComponents container w-25 d-flex flex-column align-items-between justify-content-center">
             <div>
-                <h2 className="mb-5 text-danger">Log In</h2>
+                <h2 className="mb-5">Log In</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="container d-flex flex-column align-items-between justify-content-center" >
                         <label className="row m-2">
-                            <p className="col-6">E-mail:</p>
+                            <p className="col-6 text-end pe-5 pt-1">E-mail:</p>
                             <input className="col-6" name="email" type='email' required onChange={handleChangeEmail} />
                         </label>
                         <label className="row m-2">
-                            <p className="col-6 text-light">Contraseña:</p>
+                            <p className="col-6 text-end pe-5 pt-1">Contraseña:</p>
                             <input className="col-6" name="password" type='password' required onChange={handleChangePassword} />
                         </label>
                     </div>
-                    <button className="btn btn-danger rounded-pill mt-5" type="submit">Acceder</button>
+                    <div className="d-flex flex-column align-items-center justify-content-evenly">
+                        <button className="btn btn-danger rounded-pill mt-5" type="submit">Acceder</button>
+                        <Link to='/signUp'><p className="mt-4 linkLoginSignup">¿No tienes una cuenta?</p></Link>
+                    </div>
                 </form>
-                {submited && <Navigate to='/perfil'/>}
+                {submited && <Navigate to={`/perfil/${user.id}`}/>}
                 {!validCredentials && <p className="text-danger mt-5">Credenciales no válidas.</p>}
 
             </div>
