@@ -50,16 +50,16 @@ const LogIn = () => {
                     <div className="container d-flex flex-column align-items-between justify-content-center" >
                         <label className="row m-2">
                             <p className="col-6 text-end pe-5 pt-1">E-mail:</p>
-                            <input className="col-6" name="email" type='email' required onChange={handleChangeEmail} />
+                            <input className="col-6 rounded-pill py-1" name="email" type='email' required onChange={handleChangeEmail} />
                         </label>
                         <label className="row m-2">
                             <p className="col-6 text-end pe-5 pt-1">Contraseña:</p>
-                            <input className="col-6" name="password" type='password' required onChange={handleChangePassword} />
+                            <input className="col-6 rounded-pill py-1" name="password" type='password' required onChange={handleChangePassword} />
                         </label>
                     </div>
                     <div className="d-flex flex-column align-items-center justify-content-evenly">
                         <button className="btn btn-danger rounded-pill mt-5" type="submit">Acceder</button>
-                        <Link to='/signUp'><p className="mt-4 linkLoginSignup">¿No tienes una cuenta?</p></Link>
+                        <Link to='/signUp'><p className="mt-4 text-light linkLoginSignup">¿No tienes una cuenta?</p></Link>
                     </div>
                 </form>
                 {submited && <Navigate to={`/perfil/${user.id}`}/>}

@@ -10,6 +10,8 @@ import Perfil from './components/pages/usuarios/Perfil';
 import DetallesPrestamo from './components/pages/Prestamos/DetallesPrestamo';
 import ListadoPrestamos from './components/pages/Prestamos/ListadoPrestamos';
 import EditarPerfil from './components/pages/usuarios/EditarPerfil';
+import Error404 from './components/layouts/Error404';
+import EditarPrestamo from './components/pages/Prestamos/EditarPrestamo';
 
 
 function App() {
@@ -25,17 +27,19 @@ function App() {
 
           {/* Paths Usuarios */}
           <Route path='perfil/:id' element={<Perfil />} />
-            <Route path= 'perfil/:id/editarPerfil' element={<EditarPerfil />} />
-            {/* <Route path='/eliminarCuenta' element={<EliminarCuenta />} /> */}
+          <Route path= 'perfil/:id/editarPerfil' element={<EditarPerfil />} />
+          {/* <Route path='/eliminarCuenta' element={<EliminarCuenta />} /> */}
 
           {/* Paths Prestamos */}
           <Route path='prestamos' element={<ListadoPrestamos />}/>
-          <Route path='prestamo/:id' element={<DetallesPrestamo />} />
-          {/* <Route path='perfil/nuevaMascota' element={<NuevaMascota />} /> */}
+          <Route path='prestamos/:id' element={<DetallesPrestamo />} />
+          <Route path='prestamos/:id/editarPrestamo' element={<EditarPrestamo />} />
 
           {/* Paths Citas */}
           {/* <Route path='mascotas/:id/nuevaCita' element={<NuevaCita />} /> */}
           {/* <Route path='mascotas/:id/editarCita/:idCita' element={<EditarCita />} /> */}
+          
+          <Route path='*' element={<Error404 />} />
         </Route>
       </Routes>
     </div>

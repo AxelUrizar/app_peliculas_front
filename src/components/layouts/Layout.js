@@ -14,17 +14,13 @@ const Layout = () => {
     const users = useSelector(state => state.users)
     const userFiltered = users.filter(userFilter => userFilter.id == storageId)
     const user = userFiltered[0]
-    console.log(user)
+    // console.log(user)
 
     const dispatch = useDispatch()
 
     useEffect(() => {
         if(localStorage.getItem('user') !== null) dispatch(isLogged())
     })
-
-    const logout = () => {
-        dispatch(notLogged())
-    }
 
     return (
         <div className="vw-100 vh-100 d-flex flex-column justify-content-start">

@@ -56,8 +56,12 @@
 }
 
 body{
-  /* background-color: rgb(33, 36, 41)!important; */
-  background: linear-gradient(180deg, rgb(15, 15, 15) 0%, rgb(27, 27, 27) 100%);
+  /* Portátil */
+  background: linear-gradient(180deg, rgb(15, 15, 15) 0%, rgb(37, 37, 37) 100%);
+
+  /* Torre */
+  /* background: linear-gradient(180deg, rgb(15, 15, 15) 0%, rgb(27, 27, 27) 100%); */
+
   background-attachment: fixed;
   height: 100vh;
   max-width: 100%;
@@ -79,7 +83,7 @@ h4{
 }
 
 p{
-  color: white!important;
+  color: rgb(197, 39, 39)!important;
   margin: 0!important;
 }
 
@@ -125,4 +129,8 @@ hr{
 
 .signup{
   width: 30%!important;
+}
+
+.returnHome:hover{
+  color: rgb(143, 143, 143)!important;
 }

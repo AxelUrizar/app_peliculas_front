@@ -18,6 +18,9 @@ const EditarPerfil = () => {
     const [email, setEmail] = useState(user.email)
     // console.log(nombre, email)
 
+    const emailDispatch = user.email
+    const nombreDispatch = user.name
+
     const dispatch = useDispatch()
 
     const toggleEditNombre = () => {
@@ -47,17 +50,31 @@ const EditarPerfil = () => {
     const handleSubmitName = (e) => {
         e.preventDefault()
 
-        dispatch(updateUserName(id, nombre))
+        if (nombre === '') {
+            dispatch(updateUserName(id, nombreDispatch))
+    
+            toggleEditNombre()  
+        } else {
+            dispatch(updateUserName(id, nombre))
+    
+            toggleEditNombre()            
+        }
 
-        toggleEditNombre()
     }
 
     const handleSubmitEmail = (e) => {
         e.preventDefault()
 
-        dispatch(updateUserEmail(id, email))
+        if(email === '') {
+            dispatch(updateUserEmail(id, emailDispatch))
 
-        toggleEditEmail()
+            toggleEditEmail()
+        } else {            
+            dispatch(updateUserEmail(id, email))
+    
+            toggleEditEmail()
+        }
+
     }
 
 
@@ -66,18 +83,18 @@ const EditarPerfil = () => {
             <h2>Edita tu Perfil</h2>
             <div className="w-100 container d-flex row align-items-center justify-content-center m-auto">
                 {!editNombre && 
-                    <form className="col-12 row d-flex align-items-center justify-content-center mt-5">
+                    <div className="col-12 row d-flex align-items-center justify-content-center mt-5">
                         <h4 className="col-2 m-0 p-0 text-end">Nombre:</h4>
                         <p className="col-3 text-light m-0 p-0">{user.name}</p>
                         <div className="col-2 m-0 p-0">
-                            <button className="btn btn-danger rounded-pill" onClick={toggleEditNombre} type="submit">Editar Nombre</button>
+                            <button className="btn btn-danger rounded-pill" onClick={toggleEditNombre}>Editar Nombre</button>
                         </div>
-                    </form>
+                    </div>
                 }
                 {editNombre && 
                     <form className="col-12 row d-flex align-items-center justify-content-center mt-5"  onSubmit={handleSubmitName}>
                         <h4 className="col-2 m-0 p-0 text-end">Nombre:</h4>
-                        <div className='col-3 pe-0'><input type='text' placeholder={user.name} onChange={handleChangeNombre} className='text-center' /></div>
+                        <div className='col-3 pe-0'><input type='text' placeholder={user.name} onChange={handleChangeNombre} className='text-center rounded-pill py-1' /></div>
                         <div className="col-2 m-0 p-0">
                             <button className="btn btn-danger rounded-pill" type="submit">Confirmar</button>
                         </div>                    
@@ -85,24 +102,25 @@ const EditarPerfil = () => {
                 }
 
                 {!editEmail &&
-                    <form className="col-12 row d-flex align-items-center justify-content-center mt-5">
+                    <div className="col-12 row d-flex align-items-center justify-content-center mt-5">
                         <h4 className="col-2 m-0 p-0 text-end">Email:</h4>
                         <p className="col-3 text-light m-0 p-0">{user.email}</p>
                         <div className="col-2 m-0 p-0">
-                            <button className="btn btn-danger rounded-pill" onClick={toggleEditEmail} type="submit">Editar Email</button>
+                            <button className="btn btn-danger rounded-pill" onClick={toggleEditEmail}>Editar Email</button>
                         </div>
-                    </form>
+                    </div>
                 }
                 {editEmail &&
                     <form className="col-12 row d-flex align-items-center justify-content-center mt-5"  onSubmit={handleSubmitEmail}>
                         <h4 className="col-2 m-0 p-0 text-end">Email:</h4>
-                        <div className='col-3 pe-0'><input type='email' placeholder={user.email} onChange={handleChangeEmail} className='text-center' /></div>
+                        <div className='col-3 pe-0'><input type='email' placeholder={user.email} onChange={handleChangeEmail} className='text-center rounded-pill py-1' /></div>
                         <div className="col-2 m-0 p-0">
                             <button className="btn btn-danger rounded-pill" type="submit">Confirmar</button>
                         </div>
                     </form>
                 }
             </div>
+            <Link to={`/perfil/${id}`}><button className="btn btn-danger rounded-pill my-5">Volver</button></Link>
         </div>
 
     )

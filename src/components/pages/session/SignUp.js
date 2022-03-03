@@ -13,8 +13,10 @@ const SignUp = () => {
     const [confirmPassword, setConfirmPassword] = useState('')
     const [validatePasswords, setValidatePasswords] = useState(true)
     const [submited, setSubmited] = useState(false)
+
+    const users = store.getState().users
+    const id = (users[users.length -1].id) + 1
     
-    const cart = useSelector(state => state)
     const dispatch = useDispatch()
 
     const handleChangeName = (e) => {
@@ -33,8 +35,6 @@ const SignUp = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const users = store.getState().users
-        const id = (users[users.length -1].id) + 1
 
         if(password !== confirmPassword){
             console.log('Las contraseñas no coinciden')
@@ -42,10 +42,6 @@ const SignUp = () => {
                 setValidatePasswords(false)
             )
         }
-
-        console.log(id, name, email, password)
-
-        console.log(cart.isLogged)
 
         dispatch(addUser(id, name, email, password))
         dispatch(isLogged(id))
@@ -60,28 +56,28 @@ const SignUp = () => {
                 <div className="container d-flex flex-column align-items-between justify-content-center p-0" >
                     <label className="row m-2">
                         <p className="col-6 text-end pe-5 pt-1">Nombre Completo:</p>
-                        <input className="col-6" name="name" type='text' required onChange={handleChangeName} />
+                        <input className="col-6 rounded-pill py-1" name="name" type='text' required onChange={handleChangeName} />
                     </label>
                     <label className="row m-2">
                         <p className="col-6 text-end pe-5 pt-1">E-mail:</p>
-                        <input className="col-6" name="email" type='email' required onChange={handleChangeEmail} />
+                        <input className="col-6 rounded-pill py-1" name="email" type='email' required onChange={handleChangeEmail} />
                     </label>
                     <label className="row m-2">
                         <p className="col-6 text-end pe-5 pt-1">Contraseña:</p>
-                        <input className="col-6" name="password" type='password' required onChange={handleChangePassword} />
+                        <input className="col-6 rounded-pill py-1" name="password" type='password' required onChange={handleChangePassword} />
                     </label>
                     <label className="row m-2">
                         <p className="col-6 text-end pe-5 pt-1">Confirmar Contraseña:</p>
-                        <input className="col-6" name="confirmPassword" type='password' required onChange={handleChangeConfirmPassword} />
+                        <input className="col-6 rounded-pill py-1" name="confirmPassword" type='password' required onChange={handleChangeConfirmPassword} />
                     </label>
                 </div>
                 <div className="d-flex flex-column align-items-center justify-content-evenly">
                     <button className="btn btn-danger rounded-pill mt-5" type="submit">Acceder</button>
-                    <Link to='/logIn'><p className="mt-4 linkLoginSignup">¿Ya tienes una cuenta?</p></Link>
+                    <Link to='/logIn'><p className="mt-4 text-light linkLoginSignup">¿Ya tienes una cuenta?</p></Link>
                 </div>
             </form>
             {!validatePasswords && <p className="mt-5">Las contraseñas no coinciden.</p>}
-            {submited && <Navigate to='/perfil'/>}
+            {submited && <Navigate to={`/perfil/${id}`}/>}
         </div>
     )
 }
