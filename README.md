@@ -1,70 +1,109 @@
-# Getting Started with Create React App
+# AppCitasVeterinariasFrontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplicación para la gestión de Usuarios, Mascotas y Citas veterinarias.
 
-## Available Scripts
+<a href='https://github.com/AxelUrizar/app_peliculas_front'>Pulsa aquí para ver el repositorio</a>
 
-In the project directory, you can run:
+<br><br>
 
-### `npm start`
+### Instalación 🔧
+<br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+_Antes de instalar nuestro proyecto frontal tendremos que instalar la Api junto a la base de datos los cuales podemos encontrar junto a una guía para instalarlos en el siguiente <a href='https://github.com/AxelUrizar/ProyectoBackend_BuscadorDePeliculas'>repositorio</a>._
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+_Ahora si, para instalar el proyecto deberás copiar en tu disco local el repositorio de GitHub con el siguiente comando:_
 
-### `npm test`
+```
+git clone https://github.com/AxelUrizar/app_peliculas_front
+```
+<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+_Tras lo cual tendremos que entrar a la carpeta generada por el comando anterior y instalar las dependencias con:_
 
-### `npm run build`
+```
+npm install
+```
+o
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+yarn install
+```
+<br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+_Una vez terminado el paso anterior procederemos a la ejecución de el siguiente comando para poner en marcha el proyecto:_
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+```
+npm run start
+```
+o
+```
+yarn start
+```
+<br>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+_Tras acabar con el paso anterior tendremos nuestra página desplegada en el buscador._
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## ¿Qué contiene la página? ⚙️
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Barra de navegación:
 
-## Learn More
+* Logo de la página clickable para volver a la página principal.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* Botón para crear una cuenta.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* Botón para logearte en caso de que ya tengas una cuenta.
 
-### Code Splitting
+* Link a los prestamos del usuario.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+* Link a los detalles de el perfil.
 
-### Analyzing the Bundle Size
+* Vista Administrador con links a usuarios y pedidos (en caso de ser un usuario Administrador).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Vista Home:
 
-### Making a Progressive Web App
+* Descripción sobre el sitio.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Vista Perfil: 
 
-### Advanced Configuration
+* Descripción sobre tu perfil.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+* Botón para editar tu perfil
 
-### Deployment
+* Boton para desloguearte de tu perfil
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Vista listado Prestamos:
 
-### `npm run build` fails to minify
+* Datos Resumidos de cada prestamo.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* Botón para acceder a los detalles de el prestamo.
+
+Vista detalles Prestamo: 
+
+* Detalles mas extendidos sobre el prestamo.
+
+* Posibilidad de editar los préstamos que no han sido resueltos con anterioridad.
+
+Vista listado Prestamos ADMIN:
+
+* Listado todos los préstamos con detalles reducidos y nombre de el usuario al que corresponden.
+
+Vista listado Usuarios ADMIN:
+
+* Listado todos los usuarios con detalles reducidos.
+
+<br>
+
+## Construido con 🛠️
+
+* Javascript
+* React
+* Redux
+
+<br>
+
+## Autores ✒️
+
+* **Axel Urizar** - [GitHub](https://github.com/AxelUrizar)
