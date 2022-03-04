@@ -29,7 +29,7 @@ const Layout = () => {
                 {/* <div className="col"></div> */}
                 <div>
                         {!loggedCheck && 
-                            <ul className="d-flex align-items-center justify-content-evenly p-0 m-0 pe-5">
+                            <ul className="d-flex align-items-center justify-content-evenly p-0 m-0 pe-5">                                  
                                 <li>
                                     <Link to='signUp' className="navBar-link me-5">Sign Up</Link>
                                 </li>
@@ -49,6 +49,17 @@ const Layout = () => {
                                 <li>
                                     <Link to={`perfil/${user.id}`} className="navBar-link"><img src={perfil} className='rounded-circle fotoPerfilNavBar mb-1'/></Link>
                                 </li>
+                                {user.role === 'admin' && 
+                                    <div className="dropdown ms-5 pb-1">
+                                        <button className="btn btn-danger rounded-pill dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Vista Admin
+                                        </button>
+                                        <ul className="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton1">
+                                            <li className="text-center"><Link to='admin/usuariosAdmin'><p className="dropdownAdmin text-light">Usuarios</p></Link></li>
+                                            <li className="text-center"><Link to='admin/prestamosAdmin'><p className="dropdownAdmin text-light">Pedidos</p></Link></li>
+                                        </ul>
+                                  </div>
+                                }   
                             </ul>
                         }
                 </div>

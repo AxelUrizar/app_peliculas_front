@@ -119,6 +119,7 @@ hr{
 
 .fotoPerfilNavBar{
   height: 2.5em;
+  box-sizing: unset!important;
 }
 
 .barraNavegacion{
@@ -133,4 +134,8 @@ hr{
 
 .returnHome:hover{
   color: rgb(143, 143, 143)!important;
+}
+
+.dropdownAdmin:hover{
+  color: rgb(197, 39, 39)!important
 }

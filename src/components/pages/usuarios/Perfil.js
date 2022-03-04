@@ -22,7 +22,7 @@ const Perfil = () => {
             <h2>Perfil</h2>
             <div className="container mt-5 d-flex flex-column justify-content-evenly">
                 <div className="row d-flex justify-content-center">
-                    <div className="row col-9">
+                    <div className="row col-8">
                         <img src={perfil} alt='ImagenPerfil' className='rounded-circle col-4'/>
                         <div className="col-6 d-flex flex-column align-items-start justify-content-center">
                             <div className="d-flex align-items-center justify-content-center my-2">

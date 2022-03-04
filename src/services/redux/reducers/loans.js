@@ -5,8 +5,16 @@ import { DELETE_LOAN, LOAN_RETURN, NEW_LOAN, UPDATE_LOAN } from "../actions/loan
 const initialState = [
     {id: 1, movieTitle: 'La guerra de las galaxias', rentedAt: moment(new Date()).format("DD/MM/YYYY"), returnAt: '07/03/2022', returned: false, userId: 1,
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a turpis purus. Nullam lorem justo, finibus et mi eu, sollicitudin tincidunt elit. Nam consequat, libero eu dictum faucibus, nisi libero pulvinar quam, non faucibus elit orci nec purus. Vestibulum nec suscipit sem. Morbi eu eleifend urna. Praesent a est et velit faucibus varius.'},
-    {id: 2, movieTitle: 'Hola que tal', rentedAt: '18/02/2022', returnAt: '24/02/2022', returned: true, userId: 1,
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a turpis purus. Nullam lorem justo, finibus et mi eu, sollicitudin tincidunt elit. Nam consequat, libero eu dictum faucibus, nisi libero pulvinar quam, non faucibus elit orci nec purus. Vestibulum nec suscipit sem. Morbi eu eleifend urna. Praesent a est et velit faucibus varius.'}
+    {id: 2, movieTitle: 'Spiderman', rentedAt: '18/02/2022', returnAt: '24/02/2022', returned: true, userId: 1,
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a turpis purus. Nullam lorem justo, finibus et mi eu, sollicitudin tincidunt elit. Nam consequat, libero eu dictum faucibus, nisi libero pulvinar quam, non faucibus elit orci nec purus. Vestibulum nec suscipit sem. Morbi eu eleifend urna. Praesent a est et velit faucibus varius.'},
+    {id: 3, movieTitle: 'The Batman', rentedAt: moment(new Date()).format("DD/MM/YYYY"), returnAt: '07/03/2022', returned: false, userId: 3,
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a turpis purus. Nullam lorem justo, finibus et mi eu, sollicitudin tincidunt elit. Nam consequat, libero eu dictum faucibus, nisi libero pulvinar quam, non faucibus elit orci nec purus. Vestibulum nec suscipit sem. Morbi eu eleifend urna. Praesent a est et velit faucibus varius.'},
+    {id: 4, movieTitle: 'Uncharted', rentedAt: '18/02/2022', returnAt: '24/02/2022', returned: true, userId: 3,
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a turpis purus. Nullam lorem justo, finibus et mi eu, sollicitudin tincidunt elit. Nam consequat, libero eu dictum faucibus, nisi libero pulvinar quam, non faucibus elit orci nec purus. Vestibulum nec suscipit sem. Morbi eu eleifend urna. Praesent a est et velit faucibus varius.'},
+    {id: 5, movieTitle: 'Encanto', rentedAt: moment(new Date()).format("DD/MM/YYYY"), returnAt: '07/03/2022', returned: false, userId: 4,
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a turpis purus. Nullam lorem justo, finibus et mi eu, sollicitudin tincidunt elit. Nam consequat, libero eu dictum faucibus, nisi libero pulvinar quam, non faucibus elit orci nec purus. Vestibulum nec suscipit sem. Morbi eu eleifend urna. Praesent a est et velit faucibus varius.'},
+    {id: 6, movieTitle: 'El buen patrón', rentedAt: '18/02/2022', returnAt: '24/02/2022', returned: true, userId: 4,
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a turpis purus. Nullam lorem justo, finibus et mi eu, sollicitudin tincidunt elit. Nam consequat, libero eu dictum faucibus, nisi libero pulvinar quam, non faucibus elit orci nec purus. Vestibulum nec suscipit sem. Morbi eu eleifend urna. Praesent a est et velit faucibus varius.'},
 ]
 
 const reducer = (state = initialState, action) => {
