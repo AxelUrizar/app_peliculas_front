@@ -1,6 +1,19 @@
+import { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import moviedbCalls from "../../services/axios/moviedb-calls"
+import { seeAll } from "../../services/redux/actions/movies"
 
 const Home = () => {
 
+    const dispatch = useDispatch()
+    const movies = useSelector(state => state.movies)
+
+    useEffect(() => {
+        dispatch(seeAll())
+    },[])
+    // movies.then(res => console.log(res.data.results))
+    console.log(movies)
+    
     return (
         <div className="mt-5">                
             <h2>Bienvenido!</h2>
