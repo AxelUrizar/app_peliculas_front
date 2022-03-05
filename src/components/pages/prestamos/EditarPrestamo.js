@@ -48,7 +48,7 @@ const EditarPrestamo = () => {
 
     return(
         <div>
-            <h2>Editar Prestamo</h2>
+            <h2 className="shadowText">Editar Prestamo</h2>
             <div className="w-100 container d-flex row align-items-center justify-content-center m-auto">
                 {!editLoan && 
                     <div className="col-12 row d-flex align-items-center justify-content-center mt-5">

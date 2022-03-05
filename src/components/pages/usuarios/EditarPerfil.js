@@ -80,7 +80,7 @@ const EditarPerfil = () => {
 
     return (
         <div>
-            <h2>Edita tu Perfil</h2>
+            <h2 className="shadowText">Edita tu Perfil</h2>
             <div className="w-100 container d-flex row align-items-center justify-content-center m-auto">
                 {!editNombre && 
                     <div className="col-12 row d-flex align-items-center justify-content-center mt-5">

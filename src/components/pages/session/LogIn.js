@@ -45,7 +45,7 @@ const LogIn = () => {
     return (
         <div className="outletComponents container w-25 d-flex flex-column align-items-between justify-content-center">
             <div>
-                <h2 className="mb-5">Log In</h2>
+                <h2 className="mb-5 shadowText">Log In</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="container d-flex flex-column align-items-between justify-content-center" >
                         <label className="row m-2">
@@ -62,7 +62,7 @@ const LogIn = () => {
                         <Link to='/signUp'><p className="mt-4 text-light linkLoginSignup">¿No tienes una cuenta?</p></Link>
                     </div>
                 </form>
-                {submited && <Navigate to={`/perfil/${user.id}`}/>}
+                {submited && <Navigate to='/' />}
                 {!validCredentials && <p className="text-danger mt-5">Credenciales no válidas.</p>}
 
             </div>

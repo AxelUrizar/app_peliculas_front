@@ -22,7 +22,7 @@ const DetallesPrestamo = () => {
 
     return (
         <div>
-            <h2>Detalles Prestamo</h2>
+            <h2 className="shadowText">Detalles Prestamo</h2>
             <div className="container mt-5 d-flex flex-column justify-content-evenly">
                 <div className=" d-flex align-items-center justify-content-start mt-4">
                     <h4 className=" text-start me-4">Titulo:</h4>

@@ -19,7 +19,7 @@ const Perfil = () => {
 
     return (
         <div className="w-100">
-            <h2>Perfil</h2>
+            <h2 className="shadowText">Perfil</h2>
             <div className="container mt-5 d-flex flex-column justify-content-evenly">
                 <div className="row d-flex justify-content-center">
                     <div className="row col-8">

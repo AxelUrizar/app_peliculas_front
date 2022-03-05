@@ -18,7 +18,7 @@ const PrestamosAdmin = () => {
 
     return(
         <div>
-            <h2>Prestamos Admin</h2>
+            <h2 className="shadowText">Prestamos Admin</h2>
             <div className="container flex-grow-1 d-flex flex-column align-items-center justify-content-around">
                 {loans.length === 0 && <h4 className="mt-5">No tienes préstamos activos!</h4>}
                 {loans.length > 0 && 

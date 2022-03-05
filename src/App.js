@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js'
 import { Route, Routes } from 'react-router-dom';
 import Layout from './components/layouts/Layout';
-import Home from './components/layouts/Home';
+import Home from './components/pages/peliculas/Home';
 import SignUp from './components/pages/session/SignUp';
 import LogIn from './components/pages/session/LogIn';
 import Perfil from './components/pages/usuarios/Perfil';
@@ -15,6 +15,7 @@ import Error404 from './components/layouts/Error404';
 import EditarPrestamo from './components/pages/prestamos/EditarPrestamo';
 import UsuariosAdmin from './components/pages/admins/UsuariosAdmin';
 import PrestamosAdmin from './components/pages/admins/PrestamosAdmin';
+import DetallesPelicula from './components/pages/peliculas/DetallesPelicula';
 
 
 function App() {
@@ -26,21 +27,18 @@ function App() {
           <Route path='' element= {<Home/>}/>
           <Route path='signUp' element={<SignUp />} />
           <Route path='logIn' element={<LogIn />} />
-          {/* <Route path='logout' element={<Logout />} /> */}
 
           {/* Paths Usuarios */}
           <Route path='perfil/:id' element={<Perfil />} />
           <Route path= 'perfil/:id/editarPerfil' element={<EditarPerfil />} />
-          {/* <Route path='/eliminarCuenta' element={<EliminarCuenta />} /> */}
 
           {/* Paths Prestamos */}
           <Route path='prestamos' element={<ListadoPrestamos />}/>
           <Route path='prestamos/:id' element={<DetallesPrestamo />} />
           <Route path='prestamos/:id/editarPrestamo' element={<EditarPrestamo />} />
 
-          {/* Paths Citas */}
-          {/* <Route path='mascotas/:id/nuevaCita' element={<NuevaCita />} /> */}
-          {/* <Route path='mascotas/:id/editarCita/:idCita' element={<EditarCita />} /> */}
+          {/* Paths Peliculas */}
+          <Route path='pelicula/:id' element={<DetallesPelicula />} />
 
           {/* Paths Admin */}
           <Route path='admin/usuariosAdmin' element={<UsuariosAdmin />} />

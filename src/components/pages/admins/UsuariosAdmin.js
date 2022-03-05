@@ -5,7 +5,7 @@ const UsuariosAdmin = () => {
 
     return(
         <div>
-            <h2>Usuarios Admin</h2>
+            <h2 className="shadowText">Usuarios Admin</h2>
             <div className="container flex-grow-1 d-flex flex-column align-items-center justify-content-around">
                 {users.length === 0 && <h4 className="mt-5">No existen usuarios!</h4>}
                 {users.length > 0 && 

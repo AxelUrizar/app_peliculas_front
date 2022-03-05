@@ -51,7 +51,7 @@ const SignUp = () => {
     
     return (
         <div className="d-flex container signup flex-column align-items-between justify-content-center outletComponents p-0">
-            <h2 className="mb-5">Sign Up</h2>
+            <h2 className="mb-5 shadowText">Sign Up</h2>
             <form onSubmit={handleSubmit}>
                 <div className="container d-flex flex-column align-items-between justify-content-center p-0" >
                     <label className="row m-2">
@@ -77,7 +77,7 @@ const SignUp = () => {
                 </div>
             </form>
             {!validatePasswords && <p className="mt-5">Las contraseñas no coinciden.</p>}
-            {submited && <Navigate to={`/perfil/${id}`}/>}
+            {submited && <Navigate to='/'/>}
         </div>
     )
 }

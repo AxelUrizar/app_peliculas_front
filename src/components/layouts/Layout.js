@@ -25,7 +25,7 @@ const Layout = () => {
     return (
         <div className="vw-100 vh-100 d-flex flex-column justify-content-start">
             <div className="container-fluid barraNavegacion d-flex align-items-center justify-content-between p-1 px-5 m-0 mt-4">
-                <Link to='/' className=""><h1 className="netflix m-0 ps-5">Netflix</h1></Link>
+                <Link to='/' className=""><h1 className="shadowText netflix m-0 ps-5">Netflix</h1></Link>
                 {/* <div className="col"></div> */}
                 <div>
                         {!loggedCheck && 

@@ -12,7 +12,7 @@ const ListadoPrestamos = () => {
 
     return (
         <div className="container flex-grow-1 d-flex flex-column align-items-center justify-content-around">
-            <h2>Tus Préstamos</h2>
+            <h2 className="shadowText">Tus Préstamos</h2>
             {loansUser.length === 0 && <h4 className="mt-5">No tienes préstamos activos!</h4>}
             {loansUser.length > 0 && 
                 <ul className="mt-4 p-0">
