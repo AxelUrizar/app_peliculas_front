@@ -1,22 +1,63 @@
-import { useSelector } from "react-redux"
-import { useParams } from "react-router-dom"
+import { useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { Link, Navigate, useParams } from "react-router-dom"
+import { newLoan } from "../../../services/redux/actions/loans"
 
 export default function DetallesPelicula(){
+    const [loaned, setLoaned] = useState(false)
+    const [path, setPath] = useState ('')
+
     const {id} = useParams()
+
+    const storageId = localStorage.getItem('user')
+
+    const loans = useSelector(state => state.loans)
 
     const peliculas = useSelector(state => state.movies)
     const peliculaFiltrada = peliculas.filter(peliculaFilt => peliculaFilt.id == id)
     const pelicula = peliculaFiltrada[0]
 
+    const users = useSelector(state => state.users)
+    const userFiltered = users.filter(userFilter => userFilter.id == storageId)
+    const user = userFiltered[0]
+
+    
     const getImage = (path) => `https://image.tmdb.org/t/p/w500/${path}`
+    
+    const dispatch = useDispatch()
+    
+    const alquilar = () => {
+        if (user) {
+            const idLoan = (loans[loans.length -1].id) + 1
+            dispatch(newLoan(idLoan, pelicula.original_title, pelicula.overview, storageId))
+            
+            setLoaned(true)
+            return setPath(<Navigate to={`/prestamos/${idLoan}`} />)   
+        } else {
+            setLoaned(true)
+            return setPath(<Navigate to='/logIn' />)            
+        }
+        
+    }
 
     return (
         <div>
-            <h2 className="shadowText">Detalles</h2>
-            <div>
-                
-                <h2>{pelicula.original_title}</h2>
+            <h2 className="shadowText mb-5">Detalles de la Pelicula</h2>
+            <div className="container d-flex justify-content-start align-items-center pt-3">
+                <img src={getImage(pelicula.poster_path)} className='imgPeliculasDetalles' />
+                <div className='ms-5 descripcionAlquiler d-flex flex-column justify-content-between align-items-center'>
+                    <div className="text-start">
+                        <h4>Titulo:<span className="text-light ps-3">{pelicula.original_title}</span></h4>
+                        <h4 className="my-5">Fecha de estreno: <span className="text-light ps-3">{pelicula.release_date}</span></h4>
+                        <h4>Sinopsis:<span className="text-light ps-3">{pelicula.overview}</span></h4>
+                    </div>
+                    <div className="botonesAlquiler mt-5 d-flex justify-content-between align-items-center">
+                        <button className="btn btn-danger rounded-pill" onClick={alquilar}>Alquilar</button>
+                        <Link to='/'><button className="btn btn-danger rounded-pill">Volver</button></Link>
+                    </div>
+                </div>
             </div>
+            {loaned && path}
         </div>
     )
 } 
