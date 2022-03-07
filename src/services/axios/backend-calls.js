@@ -4,6 +4,9 @@ import authHeader from "./auth-header";
 export const API_URL = 'http://localhost:2030/'
 
 class Backend_Calls {
+
+    // USERS
+    
     newUser (name, email, password) {
         return axios.post(API_URL + 'users/register', {name, email, password})
     }
@@ -26,6 +29,8 @@ class Backend_Calls {
         })
     }
 
+    // LOANS
+
     newLoan(movieTitle, description) {
         return axios.post(API_URL + 'loans/newLoan', {movieTitle, description}, {
             headers: authHeader()
@@ -45,6 +50,8 @@ class Backend_Calls {
     returnLoan(idLoan) {
         return axios.put(API_URL + 'loans/returnLoan', {id: idLoan})
     }
+
+    // TOKENS
 
     getTokens() {
         return axios.get(API_URL + 'users/tokens')

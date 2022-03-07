@@ -26,23 +26,23 @@ const DetallesPrestamo = () => {
             <div className="container mt-5 d-flex flex-column justify-content-evenly">
                 <div className=" d-flex align-items-center justify-content-start mt-4">
                     <h4 className=" text-start me-4">Titulo:</h4>
-                    <p className=" text-light text-start ">{loan.movieTitle}</p>
+                    <h4 className=" text-light text-start ">{loan.movieTitle}</h4>
                 </div>
-                <div className="d-flex align-items-center justify-content-start mt-5">
-                    <h4 className="text-start me-4">Descripción:</h4>
-                    <p className="text-light text-start">{loan.description}</p>
+                <div className="d-flex align-items-start justify-content-start mt-5">
+                    <h4 className="text-start me-4">Descripción: <span className="text-light text-start ms-3">{loan.description}</span></h4>
+                    
                 </div>
                 <div className="d-flex align-items-center justify-content-start mt-5">
                     <h4 className="text-start me-4">Fecha de alquiler:</h4>
-                    <p className="text-light text-start">{loan.rentedAt}</p>
+                    <h4 className="text-light text-start">{loan.rentedAt}</h4>
                 </div>
                 <div className="d-flex align-items-center justify-content-start mt-5">
                     <h4 className="text-start me-4">Fecha de devolución:</h4>
-                    <p className="text-light text-start">{loan.returnAt}</p>
+                    <h4 className="text-light text-start">{loan.returnAt}</h4>
                 </div>
                 <div className="d-flex align-items-center justify-content-start mt-5">
                     <h4 className="text-start me-4">Estado del préstamo:</h4>
-                    <p className="text-light text-start">{loan.returned === false && 'No evuelto'}{loan.returned === true && 'Devuelto'}</p>
+                    <h4 className="text-light text-start">{loan.returned === false && 'No devuelto'}{loan.returned === true && 'Devuelto'}</h4>
                 </div>
             </div>
             {returned && <div className="container d-flex align-items-center justify-content-end"><Link to='/prestamos'><button className="btn btn-danger rounded-pill my-5">Volver</button></Link></div>}

@@ -15,7 +15,7 @@ const ListadoPeliculas = () => {
                         <li className="col-3 p-0  mb-5" key={pelicula.id}>
                             <Link to={`pelicula/${pelicula.id}`}>
                                 <img className="imgPeliculas mb-2" src={getImage(pelicula.poster_path)} />
-                                <h4 className="shadowText w-75 m-auto">{pelicula.original_title}</h4>
+                                {/* <h4 className="shadowText w-75 m-auto">{pelicula.original_title}</h4> */}
                             </Link>
                         </li>
                     )
