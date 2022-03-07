@@ -6,18 +6,27 @@ export const DELETE_LOAN = 'DELETE_LOAN'
 export const LOAN_RETURN = 'LOAN_RETURN'
 export const FETCH_LOANS_USER = 'FETCH_LOANS_USER'
 export const FETCH_LOANS = 'FETCH_LOANS'
+export const FETCH_NEW_LOAN = 'FETCH_NEW_LOAN'
 
-export const newLoan = (id, movieTitle, overview, userId) => {
-    return {
-        type: NEW_LOAN,
-        payload: {
-            id: id,
-            movieTitle: movieTitle,
-            description: overview,
-            userId: userId
-        }    
+export const fetchNewLoan = (movieTitle, description) => {
+    return (dispatch) => {
+        backendCalls.newLoan(movieTitle, description)
+            .then(res => {
+                dispatch(fetchNewLoanSuccess(movieTitle, description))
+                dispatch(fetchLoansUser())
+            })
+            .catch(err => console.log(err))
     }
 }
+    const fetchNewLoanSuccess = (movieTitle, overview) => {
+        return {
+            type: NEW_LOAN,
+            payload: {
+                movieTitle: movieTitle,
+                description: overview,
+            }    
+        }
+    }
 
 export const updateLoan = (id, returnAt) => {
     return {
@@ -30,11 +39,21 @@ export const updateLoan = (id, returnAt) => {
 }
 
 export const loanReturn = id => {
-    return {
-        type: LOAN_RETURN,
-        payload: id
+    return dispatch => {
+        backendCalls.returnLoan(id)
+            .then(res => {
+                // console.log(res)
+                dispatch(loanReturnSuccess(res.data))
+                dispatch(fetchLoansUser)
+            })
     }
 }
+    const loanReturnSuccess = (loan) => {
+        return {
+            type: LOAN_RETURN,
+            payload: loan
+        }
+    }
 
 export const deleteLoan = id => {
     return {

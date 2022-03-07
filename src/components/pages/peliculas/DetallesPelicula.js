@@ -1,7 +1,7 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Link, Navigate, useParams } from "react-router-dom"
-import { newLoan } from "../../../services/redux/actions/loans"
+import { fetchLoansUser, fetchNewLoan, newLoan } from "../../../services/redux/actions/loans"
 
 export default function DetallesPelicula(){
     const [loaned, setLoaned] = useState(false)
@@ -9,12 +9,11 @@ export default function DetallesPelicula(){
 
     const {id} = useParams()
 
-    const loans = useSelector(state => state.loans)
-
+    
     const peliculas = useSelector(state => state.movies)
     const peliculaFiltrada = peliculas.filter(peliculaFilt => peliculaFilt.id == id)
     const pelicula = peliculaFiltrada[0]
-
+    
     const user = useSelector(state => state.users)
     
     const getImage = (path) => `https://image.tmdb.org/t/p/w500/${path}`
@@ -22,12 +21,12 @@ export default function DetallesPelicula(){
     const dispatch = useDispatch()
     
     const alquilar = () => {
-        if (user) {
-            const idLoan = (loans[loans.length -1].id) + 1
-            dispatch(newLoan(idLoan, pelicula.original_title, pelicula.overview, user.id))
+        if (user.id) {
+            dispatch(fetchNewLoan(pelicula.original_title, pelicula.overview))
+            // dispatch(fetchLoansUser())
             
             setLoaned(true)
-            return setPath(<Navigate to={`/prestamos/${idLoan}`} />)   
+            return setPath(<Navigate to={`/prestamos/`} />)   
         } else {
             setLoaned(true)
             return setPath(<Navigate to='/logIn' />)            
@@ -36,7 +35,7 @@ export default function DetallesPelicula(){
     }
 
     return (
-        <div>
+        <div className="mb-5">
             <h2 className="shadowText mb-5">Detalles de la Pelicula</h2>
             <div className="container d-flex justify-content-start align-items-center pt-3">
                 <img src={getImage(pelicula.poster_path)} className='imgPeliculasDetalles' />

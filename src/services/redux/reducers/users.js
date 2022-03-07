@@ -11,12 +11,11 @@ const reducer = (state = initialState, action) => {
 
     switch (action.type) {
         case ADD_USER:
-            localStorage.setItem('user', action.payload.id)
             return {
                 id: action.payload.id,
                 name: action.payload.name,
                 email: action.payload.email,
-                role: 'user'
+                role: action.payload.role
             }  
 
         case GET_USER:

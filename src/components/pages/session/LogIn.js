@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { Link, Navigate } from "react-router-dom"
 import backendCalls from "../../../services/axios/backend-calls"
 import { isLogged } from "../../../services/redux/actions/isLogged"
@@ -14,8 +14,6 @@ const LogIn = () => {
     const [validCredentials, setValidCredentials] = useState(true)
     
     const dispatch = useDispatch()
-
-    const user = useSelector(state => state.users)
 
     const handleChangeEmail = (e) => {
         setEmail(e.target.value)

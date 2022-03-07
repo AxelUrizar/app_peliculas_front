@@ -29,13 +29,8 @@ const reducer = (state = initialState, action) => {
             return [
                 ...state,
                 {
-                    id: action.payload.id,
                     movieTitle: action.payload.movieTitle,
-                    rentedAt: moment(new Date()).format("DD/MM/YYYY"),
-                    returnAt: moment(new Date()).add(4, 'days').format("DD/MM/YYYY"),
                     description: action.payload.description,
-                    returned: false,
-                    userId: action.payload.userId
                 }
             ]
         
@@ -48,13 +43,10 @@ const reducer = (state = initialState, action) => {
             })
 
         case LOAN_RETURN:
-            return state.map(loan => {
-                if (loan.id == action.payload) {
-                    loan.returned = true
-                    loan.returnAt = moment(new Date()).format("DD/MM/YYYY")
-                }
-                return loan
-            })
+            return [
+                ...state,
+                action.payload
+            ]
 
         case DELETE_LOAN:
             return state.filter(loan => loan.id !== action.payload)

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Link, useParams } from "react-router-dom"
-import { loanReturn } from "../../../services/redux/actions/loans"
+import { fetchLoansUser, loanReturn } from "../../../services/redux/actions/loans"
 
 const DetallesPrestamo = () => {
     const {id} = useParams()
@@ -16,6 +16,7 @@ const DetallesPrestamo = () => {
 
     const loanReturnFunc = () => {
         dispatch(loanReturn(id))
+        dispatch(fetchLoansUser())
         setReturned(true)
     }
 

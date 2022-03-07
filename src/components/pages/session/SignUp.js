@@ -13,9 +13,6 @@ const SignUp = () => {
     const [confirmPassword, setConfirmPassword] = useState('')
     const [validatePasswords, setValidatePasswords] = useState(true)
     const [submited, setSubmited] = useState(false)
-
-    const users = store.getState().users
-    const id = (users[users.length -1].id) + 1
     
     const dispatch = useDispatch()
 
@@ -43,8 +40,8 @@ const SignUp = () => {
             )
         }
 
-        dispatch(addUser(id, name, email, password))
-        dispatch(isLogged(id))
+        dispatch(addUser(name, email, password))
+        dispatch(isLogged())
 
         setSubmited(true)
     }

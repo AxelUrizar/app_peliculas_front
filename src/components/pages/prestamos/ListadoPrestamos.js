@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 
@@ -12,7 +13,7 @@ const ListadoPrestamos = () => {
                 <ul className="mt-4 p-0">
                     {loans.map(loan => (
                         <div>
-                            <li className="row mt-4 d-flex align-items-center justify-content-center" key={loan.id}>
+                            <li className="row mt-4 d-flex align-items-center justify-content-center" key={loan._id}>
                                 <h4 className="col-4 p-0 text-light">{loan.movieTitle}</h4>
                                 <div className="d-flex col-3 justify-content-start align-items-center p-0">
                                     <p className="descripcionTitulo">Fecha Devolución:<span className="text-light ps-3">{loan.returnAt}</span></p>
