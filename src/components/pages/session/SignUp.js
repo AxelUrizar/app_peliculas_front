@@ -1,10 +1,8 @@
 import { useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { Link, Navigate } from "react-router-dom"
 import { isLogged } from "../../../services/redux/actions/isLogged"
 import { addUser } from "../../../services/redux/actions/users"
-import store from '../../../services/redux/store'
-
 
 const SignUp = () => {
     const [name, setName] = useState('')

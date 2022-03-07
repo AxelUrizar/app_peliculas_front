@@ -19,6 +19,7 @@ import { useDispatch } from 'react-redux';
 import { fetchMovies } from './services/redux/actions/fetchMovies';
 import { getUser } from './services/redux/actions/users';
 import ListadoPeliculas from './components/pages/peliculas/ListadoPeliculas';
+import { fetchLoansUser } from './services/redux/actions/loans';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
 
   if(localStorage.getItem('user')){
     dispatch(getUser())
+    dispatch(fetchLoansUser())
   }
 
   return (

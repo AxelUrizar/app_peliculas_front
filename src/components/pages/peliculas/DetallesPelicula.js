@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Link, Navigate, useParams } from "react-router-dom"
-import { fetchLoansUser, fetchNewLoan, newLoan } from "../../../services/redux/actions/loans"
+import { fetchNewLoan } from "../../../services/redux/actions/loans"
 
 export default function DetallesPelicula(){
     const [loaned, setLoaned] = useState(false)

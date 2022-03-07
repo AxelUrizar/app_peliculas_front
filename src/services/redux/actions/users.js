@@ -13,8 +13,8 @@ export const addUser = (name, email, password) => {
     return (dispatch) => {
         backendCalls.newUser(name, email, password)
             .then(res => {
-                console.log(res.data.user)
-                console.log(res.data.token)
+                // console.log(res.data.user)
+                // console.log(res.data.token)
                 const user = res.data.user
                 const token = res.data.token
                 localStorage.setItem('user', token)
@@ -24,7 +24,7 @@ export const addUser = (name, email, password) => {
     }
 }
     const addUserSuccess = (id, name, email, role) => {
-        console.log(id, name, email, role)
+        // console.log(id, name, email, role)
         return {
             type: ADD_USER,
             payload: {
