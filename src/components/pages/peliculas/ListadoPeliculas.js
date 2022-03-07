@@ -11,7 +11,7 @@ const ListadoPeliculas = () => {
     return (
         <div>
             {/* <h2 className="pb-5 shadowText">Listado de Peliculas</h2> */}
-            <ul className="d-flex flex-wrap p-0 pt-4">
+            <ul className="d-flex flex-wrap p-0">
                 {peliculas.map(pelicula => {
                     return (
                         <li className="col-3 p-0  mb-5" key={pelicula.id}>

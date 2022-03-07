@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { Link, Navigate } from "react-router-dom"
 import backendCalls from "../../../services/axios/backend-calls"
 import { isLogged } from "../../../services/redux/actions/isLogged"
+import { fetchLoansUser } from "../../../services/redux/actions/loans"
 import { loginUser } from "../../../services/redux/actions/users"
 
 
@@ -32,6 +33,7 @@ const LogIn = () => {
                 if(userFetch.email == email && userFetch.password == password){
                     dispatch(loginUser(userFetch._id, userFetch.name, userFetch.email, userFetch.role, response.data.token))
                     dispatch(isLogged())
+                    dispatch(fetchLoansUser())
     
                     setSubmited(true)
                 }
