@@ -7,10 +7,7 @@ const EditarPerfil = () => {
     const {id} = useParams()
     // console.log(id)
 
-    const users = useSelector(state => state.users)
-    const userFiltered = users.filter(userFilter => userFilter.id == id)
-    const user = userFiltered[0]
-    // console.log(user)
+    const user = useSelector(state => state.users)
 
     const [editNombre, setEditNombre] = useState(false)
     const [editEmail, setEditEmail] = useState(false)

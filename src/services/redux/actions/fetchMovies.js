@@ -9,8 +9,6 @@ export const fetchMovies = () => {
     return (dispatch) => {
         axios.get(API_URL)
             .then(res => {
-                const movies = res.data.results
-                console.log(movies)
                 dispatch(fetchMoviesSuccess(res.data.results))
             })
             .catch(err => console.log(err))

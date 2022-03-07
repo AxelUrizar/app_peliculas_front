@@ -2,18 +2,16 @@ import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import perfil from '../../../img/foto-perfil.jpg'
 import { notLogged } from "../../../services/redux/actions/isLogged"
+import { logoutUser } from "../../../services/redux/actions/users"
 
 const Perfil = () => {   
     const dispatch = useDispatch()
-
-    const storageId = localStorage.getItem('user')
-
-    const users = useSelector(state => state.users)
-    const userFiltered = users.filter(userFilter => userFilter.id == storageId)
-    const user = userFiltered[0]
+    
+    const user = useSelector(state => state.users)
     // console.log(user)
 
     const logout = () => {
+        dispatch(logoutUser())
         dispatch(notLogged())
     }
 

@@ -1,20 +1,13 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Link, Outlet } from "react-router-dom"
-import { isLogged, notLogged } from "../../services/redux/actions/isLogged"
+import { isLogged } from "../../services/redux/actions/isLogged"
 
 import perfil from '../../img/foto-perfil.jpg'
 
 const Layout = () => {
-    const storageId = localStorage.getItem('user')
-
+    const user = useSelector(state => state.users)
     const loggedCheck = useSelector(state => state.isLogged)
-    // console.log(loggedCheck)
-
-    const users = useSelector(state => state.users)
-    const userFiltered = users.filter(userFilter => userFilter.id == storageId)
-    const user = userFiltered[0]
-    // console.log(user)
 
     const dispatch = useDispatch()
 
@@ -28,7 +21,7 @@ const Layout = () => {
                 <Link to='/' className=""><h1 className="shadowText netflix m-0 ps-5">Netflix</h1></Link>
                 {/* <div className="col"></div> */}
                 <div>
-                        {!loggedCheck && 
+                        {!loggedCheck &&
                             <ul className="d-flex align-items-center justify-content-evenly p-0 m-0 pe-5">                                  
                                 <li>
                                     <Link to='signUp' className="navBar-link me-5">Sign Up</Link>
@@ -38,7 +31,7 @@ const Layout = () => {
                                 </li>
                             </ul>
                         }
-                        {loggedCheck && 
+                        {user && loggedCheck &&
                             <ul className="d-flex align-items-center justify-content-evenly p-0 m-0 pe-5">
                                 <li>
                                     <Link to='prestamos' className="navBar-link me-5">Préstamos</Link>

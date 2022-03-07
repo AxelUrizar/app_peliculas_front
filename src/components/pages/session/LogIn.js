@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Link, Navigate } from "react-router-dom"
+import backendCalls from "../../../services/axios/backend-calls"
 import { isLogged } from "../../../services/redux/actions/isLogged"
 import { loginUser } from "../../../services/redux/actions/users"
 
@@ -13,11 +14,7 @@ const LogIn = () => {
     
     const dispatch = useDispatch()
 
-    const storageId = localStorage.getItem('user')
-
-    const users = useSelector(state => state.users)
-    const userFiltered = users.filter(userFilter => userFilter.id == storageId)
-    const user = userFiltered[0]
+    const user = useSelector(state => state.users)
 
     const handleChangeEmail = (e) => {
         setEmail(e.target.value)
@@ -28,18 +25,18 @@ const LogIn = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // console.log(cart.users)
-
-        const userValidated = users.filter(user => user.email === email && user.password === password)
-
-        if (userValidated.length === 1) {
-            dispatch(loginUser(userValidated[0].id))
-            dispatch(isLogged())
+        backendCalls.loginUser(email, password)
+            .then(response => {
+                if(!response.data) return console.log('algo salió mal en backend-calls.js')
+                const userFetch = response.data.user
+                if(userFetch.email == email && userFetch.password == password){
+                    dispatch(loginUser(userFetch._id, userFetch.name, userFetch.email, userFetch.role, response.data.token))
+                    dispatch(isLogged())
     
-            setSubmited(true)
-        } else {
-            return setValidCredentials(false)            
-        }
+                    setSubmited(true)
+                }
+            })
+            .catch(err => setValidCredentials(false))
     }
     
     return (

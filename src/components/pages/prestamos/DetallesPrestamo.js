@@ -5,14 +5,13 @@ import { loanReturn } from "../../../services/redux/actions/loans"
 
 const DetallesPrestamo = () => {
     const {id} = useParams()
-    const storageId = localStorage.getItem('user')
-
+    
     const dispatch = useDispatch()
-
+    
     const loans = useSelector(state => state.loans)
-    const loanById = loans.filter(loanFilter => loanFilter.userId == storageId && loanFilter.id == id)
+    const loanById = loans.filter(loanFilter => loanFilter._id == id)
     const loan = loanById[0]
-
+    
     const [returned, setReturned] = useState(loan.returned)
 
     const loanReturnFunc = () => {

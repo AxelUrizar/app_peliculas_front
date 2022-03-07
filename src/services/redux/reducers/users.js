@@ -1,10 +1,10 @@
-import { ADD_USER, DELETE_USER, LOGIN_USER, UPDATE_USER_NAME, UPDATE_USER_EMAIL } from "../actions/users";
+import { ADD_USER, DELETE_USER, LOGIN_USER, UPDATE_USER_NAME, UPDATE_USER_EMAIL, GET_USER, LOGOUT_USER } from "../actions/users";
 
 const initialState = [
-    {id: 1, name: 'Axel Urizar', email: 'demo@demo.com', password: '123456', role: 'admin'},
-    {id: 2, name: 'Rafa Garcia', email: 'demo2@demo.com', password: '123456', role: 'user'},
-    {id: 3, name: 'Manel Barreda', email: 'demo3@demo.com', password: '123456', role: 'user'},
-    {id: 4, name: 'Saya Casino', email: 'demo4@demo.com', password: '123456', role: 'user'}
+    // {id: 1, name: 'Axel Urizar', email: 'demo@demo.com', password: '123456', role: 'admin'},
+    // {id: 2, name: 'Rafa Garcia', email: 'demo2@demo.com', password: '123456', role: 'user'},
+    // {id: 3, name: 'Manel Barreda', email: 'demo3@demo.com', password: '123456', role: 'user'},
+    // {id: 4, name: 'Saya Casino', email: 'demo4@demo.com', password: '123456', role: 'user'}
 ]
 
 const reducer = (state = initialState, action) => {
@@ -12,20 +12,33 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_USER:
             localStorage.setItem('user', action.payload.id)
-            return [
-                ...state,
-                {
-                    id: action.payload.id,
-                    name: action.payload.name,
-                    email: action.payload.email,
-                    password: action.payload.password,
-                    role: 'user'
-                }
-            ]   
+            return {
+                id: action.payload.id,
+                name: action.payload.name,
+                email: action.payload.email,
+                role: 'user'
+            }  
+
+        case GET_USER:
+            return {
+                id: action.payload.id,
+                name: action.payload.name,
+                email: action.payload.email,
+                role: action.payload.role
+            }
             
         case LOGIN_USER:
-            localStorage.setItem('user', action.payload)
-            return [...state]
+            localStorage.setItem('user', action.payload.token)
+            return {
+                id: action.payload.id,
+                name: action.payload.name,
+                email: action.payload.email,
+                password: action.payload.password,
+                role: action.payload.role
+            }  
+
+        case LOGOUT_USER:
+            return initialState
 
         case UPDATE_USER_NAME:
             return state.map(user => {

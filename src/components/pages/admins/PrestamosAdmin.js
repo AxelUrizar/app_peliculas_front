@@ -3,15 +3,12 @@ import { Link } from "react-router-dom"
 
 const PrestamosAdmin = () => {
     const loans = useSelector(state => state.loans)
-    const users = useSelector(state => state.users)
+    const user = useSelector(state => state.users)
 
-    console.log(users)
-
-    const userSelected = (userId) => {
-        const user = users.filter(userFiltered => userFiltered.id === userId)
+    const userSelected = () => {
         return (
             <div className="d-flex col-2 justify-content-start align-items-center p-0">
-                <p className="descripcionTitulo">Usuario:<span className="text-light ps-3">{user[0].name}</span></p>
+                <p className="descripcionTitulo">Usuario:<span className="text-light ps-3">{user.name}</span></p>
             </div>
         )
     }

@@ -9,18 +9,13 @@ export default function DetallesPelicula(){
 
     const {id} = useParams()
 
-    const storageId = localStorage.getItem('user')
-
     const loans = useSelector(state => state.loans)
 
     const peliculas = useSelector(state => state.movies)
     const peliculaFiltrada = peliculas.filter(peliculaFilt => peliculaFilt.id == id)
     const pelicula = peliculaFiltrada[0]
 
-    const users = useSelector(state => state.users)
-    const userFiltered = users.filter(userFilter => userFilter.id == storageId)
-    const user = userFiltered[0]
-
+    const user = useSelector(state => state.users)
     
     const getImage = (path) => `https://image.tmdb.org/t/p/w500/${path}`
     
@@ -29,7 +24,7 @@ export default function DetallesPelicula(){
     const alquilar = () => {
         if (user) {
             const idLoan = (loans[loans.length -1].id) + 1
-            dispatch(newLoan(idLoan, pelicula.original_title, pelicula.overview, storageId))
+            dispatch(newLoan(idLoan, pelicula.original_title, pelicula.overview, user.id))
             
             setLoaned(true)
             return setPath(<Navigate to={`/prestamos/${idLoan}`} />)   
