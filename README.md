@@ -2,7 +2,7 @@
 
 Aplicación para la gestión de Usuarios, Mascotas y Citas veterinarias.
 
-<a href='https://github.com/AxelUrizar/app_peliculas_front'>Pulsa aquí para ver el repositorio</a>
+<a href='https://github.com/AxelUrizar/ProyectoBackend_BuscadorDePeliculas'>Pulsa aquí para ver el repositorio</a>
 
 <br><br>
 
